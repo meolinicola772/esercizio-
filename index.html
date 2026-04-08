@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        // ...
+    </script>
+</body>
+
+</html>
+
+
+
+
+const html = document.documentElement
+
+
+undefined
+html.children
+HTMLCollection(2) [head, body]0: head1: bodylength: 2[[Prototype]]: HTMLCollection
+const body = html.children[1]
+undefined
+body
+<body>​<ul>​<li>​…​</li>​<li>​…​</li>​<li>​…​</li>​</ul>​<script>​ // ... ​</script>​</body>​
+const ul = html.children[0]
+undefined
+ul
+<head>​…​</head>​<script type=​"text/​javascript" src=​"/​___vscode_livepreview_injected_script">​</script>​<meta charset=​"UTF-8">​<meta name=​"viewport" content=​"width=device-width, initial-scale=1.0">​<title>​Document​</title>​</head>​
+ul
+<head>​…​</head>​<script type=​"text/​javascript" src=​"/​___vscode_livepreview_injected_script">​</script>​<meta charset=​"UTF-8">​<meta name=​"viewport" content=​"width=device-width, initial-scale=1.0">​<title>​Document​</title>​</head>​
+const ul = body.children[0]
+undefined
+ul
+<ul>​…​</ul>​
+const li = ul.children[0]
+undefined
+li
+<li>​::marker​"1"</li>​
+myLi.parentElement
+VM1347:1 Uncaught ReferenceError: myLi is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM1347:1
+ul.parentElement
+<body>​…​</body>​
+const myLi = ul.children[1]
+undefined
+li
+<li>​::marker​"1"</li>​
+const myLi = ul.children[2]
+undefined
+ul.children
+HTMLCollection(3) [li, li, li]0: li1: li2: lilength: 3[[Prototype]]: HTMLCollection
+const myLi = ul.children[2]
+undefined
+ul
+<ul>​<li>​…​</li>​<li>​…​</li>​<li>​…​</li>​</ul>​
+const li = ul.children[1]
+undefined
+li
+<li>​::marker​"2"</li>​
+li.previousElementSibling
+<li>​::marker​"1"</li>​
+li.nextElementSibling
+<li>​…​</li>​
