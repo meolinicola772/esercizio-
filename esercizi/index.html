@@ -5,14 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-
   <body>
-    <div>
-      <h1>To-do List</h1>
-      <input type="text" placeholder="..." />
-      <button onclick="addProduct()">Aggiungi</button>
-      <ul></ul>
+    <div id="container">
+      <form>
+        <div>
+          <label>First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+      </form>
     </div>
-    <script src="./index.js"></script>
-  </body
 
+    <script>
+    const inputNome = document.querySelector('#firstName')
+ const inputCognome = document.querySelector('#lastName')
+ const inputEta = document.querySelector('#age')
+const valoreNome = inputNome.value;
+  const valoreCognome = inputCognome.value;
+  const valoreEta = inputEta.value
+const person = {
+  firstName: inputNome.value,
+  lastName: inputCognome.value,
+  age: inputEta.value,
+};
+const form = document.querySelector('.form')
+form.setAttribute('data-person', JSON.stringify(person));
+
+    </script>
+  </body>
+</html>
+
+
+<!-- Implementare il codice necessario per:
+
+Recuperare il valore di ciascun campo di input e creare 
+un oggetto person contenente le
+ proprietà: firstName, lastName e age.
+Infine recuperare l'elemento forme aggiungere l'attributo data-person contenente l'oggetto 
+person in formato json. -->
