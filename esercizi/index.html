@@ -1,40 +1,62 @@
+<!-- Lo scopo di questo task è di salvare tutti i dati di un form nel local storage. -
+Fai in modo che nello span venga inserito il testo che si è inserito nell'input nome -
+Fai in modo che questi dati si salvino nel local storage -Controlla che al reload il nome nel titolo non scompaia -->
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-      .theme {
-        background-color: black;
-        color: white;
-      }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            gap: 16px;
+            margin-bottom: 16px
+        };
     </style>
-
-  </head>
-  <body>
-    <h1>Dark Mode</h1>
-    <div>
-      <button class="btn">Dark Mode</button>
+</head>
+<body>
+    <h1>Il form di <span class="title-name"></span></h1>
+    <div class="form">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="email" placeholder="email">
+        <label for="firstname">Name</label>
+        <input type="text" name="firstname" class="firstname" placeholder="firstname">
+        <label for="lastname">Surname</label>
+        <input type="text" name="lastname" class="lastname" placeholder="lastname">
     </div>
+    <button class="btn">Salva</button>
+    <p class="printedform"></p>
     <script>
-
-const body = document.querySelector('body');
-console.log(body);
-
-const button = document.querySelector('button');
-console.log(button);
+      const titolo = document.querySelector('.title-name')
+      const nome = document.querySelector('.firstname')
+    const button = document.querySelector('.btn');
 
 button.addEventListener('click', () => {
-  body.classList.toggle('theme');
+   
+  const value = nome.value
+ 
+  titolo.textContent = value
+  
+localStorage.setItem('firstname', nome.value)
+  })
 
-  if (body.classList.contains('theme')) {
-    button.textContent = 'Light Mode';
-  } else {
-    button.textContent = 'Dark Mode';
-  }
-});
+
+   const nomeSalvato = localStorage.getItem('firstname')
+    if (nomeSalvato) {
+      nome.value = nomeSalvato
+      titolo.textContent = nomeSalvato
+    }
     </script>
-  </body>
+</body>
+
 </html>
