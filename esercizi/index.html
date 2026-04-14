@@ -1,6 +1,4 @@
-<!-- Lo scopo di questo task è di salvare tutti i dati di un form nel local storage. -
-Fai in modo che nello span venga inserito il testo che si è inserito nell'input nome -
-Fai in modo che questi dati si salvino nel local storage -Controlla che al reload il nome nel titolo non scompaia -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +19,7 @@ Fai in modo che questi dati si salvino nel local storage -Controlla che al reloa
             max-width: 300px;
             gap: 16px;
             margin-bottom: 16px
-        };
+        }
     </style>
 </head>
 <body>
@@ -47,11 +45,11 @@ button.addEventListener('click', () => {
  
   titolo.textContent = value
   
-localStorage.setItem('firstname', nome.value)
+sessionStorage.setItem('firstname', nome.value)
   })
 
 
-   const nomeSalvato = localStorage.getItem('firstname')
+   const nomeSalvato = sessionStorage.getItem('firstname')
     if (nomeSalvato) {
       nome.value = nomeSalvato
       titolo.textContent = nomeSalvato
