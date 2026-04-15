@@ -1,60 +1,42 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOTR Cards</title>
+  </head>
+  <body>
+    <h1>Lord of the Rings Cards</h1>
 
+    <button id="btn">Carica carta</button>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .form{
-            display: flex;
-            flex-direction: column;
-            max-width: 300px;
-            gap: 16px;
-            margin-bottom: 16px
-        }
-    </style>
-</head>
-<body>
-    <h1>Il form di <span class="title-name"></span></h1>
-    <div class="form">
-        <label for="email">Email</label>
-        <input type="email" name="email" class="email" placeholder="email">
-        <label for="firstname">Name</label>
-        <input type="text" name="firstname" class="firstname" placeholder="firstname">
-        <label for="lastname">Surname</label>
-        <input type="text" name="lastname" class="lastname" placeholder="lastname">
+    <div class="card">
+      <h2 id="name">Nome personaggio</h2>
+      <img id="image" alt="Immagine carta" width="250" />
     </div>
-    <button class="btn">Salva</button>
-    <p class="printedform"></p>
+
     <script>
-      const titolo = document.querySelector('.title-name')
-      const nome = document.querySelector('.firstname')
-    const button = document.querySelector('.btn');
+      const button = document.getElementById("btn");
+      button.addEventListener("click", fetchCard);
 
-button.addEventListener('click', () => {
-   
-  const value = nome.value
- 
-  titolo.textContent = value
-  
-sessionStorage.setItem('firstname', nome.value)
-  })
+      async function fetchCard() {
+        button.disabled = true;
+        button.textContent = "Caricamento...";
+        try {
+          const response = await fetch(
+            "https://corsproxy.io/?url=https://ringsdb.com/api/public/card/01001.json"
+          );
+          const data = await response.json();
 
-
-   const nomeSalvato = sessionStorage.getItem('firstname')
-    if (nomeSalvato) {
-      nome.value = nomeSalvato
-      titolo.textContent = nomeSalvato
-    }
+          document.getElementById("name").textContent = data.name;
+          document.getElementById("image").src = `https://ringsdb.com${data.imagesrc}`;
+        } catch (error) {
+          console.error("Errore:", error);
+        } finally {
+          button.disabled = false;
+          button.textContent = "Carica carta";
+        }
+      }
     </script>
-</body>
-
+  </body>
 </html>
