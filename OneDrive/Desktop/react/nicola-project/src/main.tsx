@@ -1,15 +1,25 @@
-// Crea un nuovo file main.tsx all'interno della cartella src e renderizza il componente App
-//  usando la funzione createRoot e il metodo render sull'oggetto radice creato.
-// Avvia l'applicazione con il comando npm run dev e apri l'applicazione nel tuo browser.
-// Modifica il componente Hello in modo che mostri un tag p sotto il tag h2 con il messaggio "What a beautiful day!".
-// Estrai il messaggio "What a beautiful day!" in un nuovo componente chiamato Message e renderizzalo all'interno del componente Hello.
-// Puoi utilizzare il componente Hello più di una volta nel componente App? Cosa succede se lo fai?
-// Puoi renderizzare il componente Message direttamente all'interno del componente App? Cosa succede se lo fai?
+// In un'applicazione React, crea un componente funzionale Welcome che riceva una prop name e visualizzi il messaggio
+//  "Welcome, {name}!" all'interno di un tag <p>.
+// Renderizza questo componente nel componente App, passando una prop name a tua scelta. Imposta un valore predefinito per la prop name.
+// Aggiungi una seconda prop chiamata age e visualizzala sotto il messaggio di benvenuto, all'interno di un tag <p> dopo il testo "Your age is ".
+// 4 .Modifica il valore passato alla prop name in modo che sia contenuto all'interno di un tag <strong>.
+// Estrai il messaggio "Your age is " in un nuovo componente chiamato Age e renderizzalo all'interno del componente Welcome. 
+// Passa al componente Age la prop age che Welcome sta ricevendo dal componente App.
 
-import { createRoot } from 'react-dom/client';
-import { Hello } from './App';
-import { App } from './App';
+import { WelcomeMessage } from "./App";
 
-createRoot(document.getElementById('root')!).render(
-    <Hello />
-)
+
+export function Welcome ({name = 'Nicola', age}: WelcomeMessage){
+    return (
+        <>
+        <p> Welcome, <strong>{name}</strong>!</p>
+           <Age age={age} />
+        </>
+   
+    );
+}
+
+export function Age({age}: WelcomeMessage){
+   return <p>Your age is {age}</p>
+}
+
