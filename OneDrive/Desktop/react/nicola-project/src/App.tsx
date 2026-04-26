@@ -6,7 +6,7 @@
 // Passa al componente Age la prop age che Welcome sta ricevendo dal componente App.
 
 
-export type WelcomeMessage={
+export type AgeProps={
    name?: string
  age: number
 }
