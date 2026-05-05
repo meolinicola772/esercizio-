@@ -14,7 +14,7 @@
 
 
 import { useEffect, useState } from 'react'
-import { MouseClicker } from './components/click.jsx'
+import { MouseClicker } from './click.jsx'
 
 
 export default function App() {
