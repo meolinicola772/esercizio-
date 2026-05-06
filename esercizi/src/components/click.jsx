@@ -24,27 +24,24 @@ export function MultiButton(){
  )
 }
 
-export function MouseClicker() {
-
- function clicks(event){
-    console.log(event.target.name, event.target, )
- 
-   
-
- }
- 
- 
-    return (
-        <div>
-    <button name="one" onClick={clicks}>
-        <img src='https://i.ebayimg.com/images/g/uGAAAeSwh9RpDdeY/s-l1600.webp'  onClick={(event) => console.log(event.target.src), event.stopPropagation()}  / >
-        Cliccami</button>
-
-
-       </div>
-
-    )
-
+ export function MouseClicker() {
+  function clicks(event) {
+    console.log(event.target.name, event.target);
+  }
+  return (
+    <div>
+      <button name="one" onClick={clicks}>
+        <img
+          src="https://i.ebayimg.com/images/g/uGAAAeSwh9RpDdeY/s-l1600.webp"
+          onClick={(event) => {
+            console.log(event.target.src);
+            event.stopPropagation();
+          }}
+        />
+        Cliccami
+      </button>
+    </div>
+  );
 }
 
 {/* 'per la 4 viene stampato anche il name perche event target stampa tutti i dati, per evitare uso stoppropagation*/}
