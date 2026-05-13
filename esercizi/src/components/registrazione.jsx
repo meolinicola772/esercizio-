@@ -25,6 +25,10 @@ localStorage.setItem('user', JSON.stringify(user))
 
 }
 
+function tastoLogin(){
+    
+}
+
    return (
     <div>
         <form onSubmit={handleRegistrati}>
@@ -32,7 +36,7 @@ localStorage.setItem('user', JSON.stringify(user))
             <input type="text" name='cognome' onChange={handleChange} placeholder="inserisci il tuo cognome"></input>
             <input type="email" name='email' onChange={handleChange} placeholder="inserisci la tua email"></input>
             <input type="password" name='password' onChange={handleChange} placeholder="inserisci la tua password"></input>
-            <button type="submit">Registrati</button>
+            <button type="submit" onClick={tastoLogin}>Registrati</button>
 
         </form>
     </div>
