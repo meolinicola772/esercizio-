@@ -1,5 +1,5 @@
 
-import { Registrazione } from './components/registrazione'
+import { Registrazione } from './assets/registrazione'
 
 
 export default function App(){
