@@ -1,34 +1,34 @@
-// Crea un componente TodoList che renderizza un tag ul con un tag li per ogni elemento contenuto nella variabile di stato items. 
-// La variabile di stato items dovrebbe essere un array di stringhe. 
-// Il componente TodoList dovrebbe anche contenere un tag input e un button. Quando il button viene cliccato,
-//  l'event handler dovrebbe aggiungere il valore del tag input all'array items.
-// Modifica il componente TodoList in modo che l'input venga svuotato ogni volta che un Todo viene aggiunto all'array items.
-// Modifica il componente TodoList aggiungendo un button "reset" che svuota l'array items quando cliccato.
-// Modifica il componente TodoList aggiungendo un button "remove" a ogni tag li.
-//  Quando cliccato, l'event handler dovrebbe rimuovere l'elemento corrispondente dall'array items.
+// Crea un componente GithubUser che riceve una prop username e recupera i dati dell'utente
+//  corrispondente dalla Github API. Il componente dovrebbe renderizzare il nome dell'utente, 
+//  il login e l'avatar.
+// Crea un componente GithubUsers che recupera una lista di utenti dalla Github API e renderizza
+//  la lista dei nomi utente come un elenco. Quando un nome utente viene cliccato, il componente 
+//  GithubUser dovrebbe essere renderizzato, passando il nome utente come prop.
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
+type User = {
+  name: string
+  login: string
+  avatar_url: string
+}
 
-export function ToDoList() {
+type Props = { username: string }
 
-    const [items, setItems] = useState(['uno','due','tre'])
-    const [input, setInput] = useState('')
+export function GithubUser({ username }: Props) {
+  const [user, setUser] = useState<User | null>(null)
 
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${username}`)
+      .then(res => res.json())
+      .then(data => setUser(data))
+  }, [username])
 
-    function eventHandler(){
-  setItems([...items, input])
-  setInput('')
-    }
-
-return (
-<>
-<ul> {items.map((item) => <li>{item} <button onClick={() => setItems(items.filter(i => i !== item))}>remove</button></li>)}</ul>
-    <input  value={input} 
-  onChange={(e) => setInput(e.target.value)} />
-    <button onClick={eventHandler} />
-    <button onClick={() =>setItems([])} />
-    </>
-)
-
+  return (
+    <div>
+      <img src={user?.avatar_url} />
+      <p>{user?.name}</p>
+      <p>{user?.login}</p>
+    </div>
+  )
 }
