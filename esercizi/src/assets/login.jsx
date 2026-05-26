@@ -1,34 +1,12 @@
-// Crea un componente TodoList che renderizza un tag ul con un tag li per ogni elemento contenuto nella variabile di stato items. 
-// La variabile di stato items dovrebbe essere un array di stringhe. 
-// Il componente TodoList dovrebbe anche contenere un tag input e un button. Quando il button viene cliccato,
-//  l'event handler dovrebbe aggiungere il valore del tag input all'array items.
-// Modifica il componente TodoList in modo che l'input venga svuotato ogni volta che un Todo viene aggiunto all'array items.
-// Modifica il componente TodoList aggiungendo un button "reset" che svuota l'array items quando cliccato.
-// Modifica il componente TodoList aggiungendo un button "remove" a ogni tag li.
-//  Quando cliccato, l'event handler dovrebbe rimuovere l'elemento corrispondente dall'array items.
-
-import { useState } from "react"
-
-
-export function ToDoList() {
-
-    const [items, setItems] = useState(['uno','due','tre'])
-    const [input, setInput] = useState('')
-
-
-    function eventHandler(){
-  setItems([...items, input])
-  setInput('')
-    }
-
-return (
-<>
-<ul> {items.map((item) => <li>{item} <button onClick={() => setItems(items.filter(i => i !== item))}>remove</button></li>)}</ul>
-    <input  value={input} 
-  onChange={(e) => setInput(e.target.value)} />
-    <button onClick={eventHandler} />
-    <button onClick={() =>setItems([])} />
-    </>
-)
-
-}
+// Crea un hook personalizzato useCounter che tiene traccia dello stato di un contatore e restituisce il valore attuale
+//  del contatore, insieme a tre funzioni per incrementare, decrementare e resettare il contatore.
+// Crea un hook personalizzato che tiene traccia dello stato di un modulo controllato con gli input username e password,
+//  e restituisce il valore attuale degli input insieme a un gestore di eventi per aggiornare uno dei due input.
+// Estrai la logica per recuperare i dati di un utente Github dal componente GithubUser di 16.3 in un hook personalizzato
+//  chiamato useGithubUser.
+// Modifica l'hook useGithubUser per restituire la funzione per recuperare i dati di un utente Github, insieme ai dati dell'utente
+//  e agli stati di errore e caricamento.
+// Scrivi l'hook personalizzato useCurrentLocation, che utilizza l'API navigator.geolocation del browser per ottenere la
+//  posizione attuale dell'utente tramite il metodo incorporato getCurrentPosition. L'hook dovrebbe restituire la posizione
+//   attuale, insieme a una funzione per ottenere la posizione attuale e agli stati di errore e caricamento.
+//    I dettagli su come utilizzare questa API possono essere trovati qui: Geolocation API.
