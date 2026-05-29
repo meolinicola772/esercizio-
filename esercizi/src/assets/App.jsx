@@ -1,4 +1,4 @@
-import { Login } from "./assets/login"
+import { Login } from "./login"
 
 function App() {
 
