@@ -1,14 +1,13 @@
+import { Login } from "./assets/login"
 
-import { Registrazione } from './assets/registrazione'
+function App() {
 
+   const { count, aumenta, reset, diminuisci } = useCounter()
 
-export default function App(){
-
-return (
-  <div>
-  <h1>ciao</h1>
-  <Registrazione />
-  </div>
-)
-
+   return (
+      <h1>{count}</h1>
+      <button onClick={aumenta}>+</button>
+      <button onClick={reset}>0</button>
+      <button onClick={diminuisci}>-</button>
+   )
 }
