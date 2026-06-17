@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled sorted 
+4f31e0d27cdaebef7a50e43bb6bd9846604406d5 refs/heads/Componenti
+2bdbc3499f19e6adc3931d037e98b037bab43bfb refs/heads/counter
+38feb9fbf3f02a5b0c6b545505af6c78c5041ce3 refs/heads/main
+1ae1498cd00083fe107270b8930ccdaf193627dd refs/heads/useEffect
+939043d4a12cd7518ea5e23ef09e29b528832b47 refs/heads/useState
