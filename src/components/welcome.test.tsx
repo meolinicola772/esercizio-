@@ -8,6 +8,11 @@ describe('Welcome', () => {
     expect(screen.getByText('Benvenuto, Martina!')).toBeInTheDocument();
   });
 
+it('renderizza correttamente anche il nome vuoto', () => {
+    render(<Welcome name="" />);
+    expect(screen.getByText('Benvenuto, !')).toBeInTheDocument();
+  });
+
   it('renderizza nomi diversi correttamente', () => {
     render(<Welcome name="Luca" />);
     expect(screen.getByText('Benvenuto, Luca!')).toBeInTheDocument();

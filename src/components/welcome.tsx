@@ -1,4 +1,8 @@
-function Welcome({ name }: { name: string }) {
+interface WelcomeProps {
+  name: string;
+}
+
+function Welcome({ name }: WelcomeProps) {
   return <h1>Benvenuto, {name}!</h1>;
 }
 
